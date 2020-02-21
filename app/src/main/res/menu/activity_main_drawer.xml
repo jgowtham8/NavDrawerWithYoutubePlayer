@@ -11,9 +11,9 @@
             android:icon="@android:drawable/ic_media_play"
             android:title="Music" />
 
-        <item android:id="@+id/nav_item_gallery"
+        <item android:id="@+id/nav_item_video_list"
             android:icon="@android:drawable/ic_media_play"
-            android:title="Gallery" />
+            android:title="Video Gallery" />
     </group>
 
     <group

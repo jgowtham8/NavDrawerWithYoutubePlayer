@@ -10,7 +10,7 @@ import androidx.core.view.GravityCompat
 import androidx.core.view.iterator
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import com.example.mytest.fragments.GalleryFragment
+import com.example.mytest.fragments.VideoListFragment
 import com.example.mytest.fragments.MusicFragment
 import com.example.mytest.fragments.VideoFragment
 import com.google.android.material.navigation.NavigationView
@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun initUI() {
-        changeFragment(VideoFragment.newInstance("",""))
-        navigationView.menu.getItem(0).isChecked = true
+        changeFragment(VideoListFragment.newInstance("",""))
+        navigationView.menu.getItem(2).isChecked = true
     }
 
     private fun initNavItemSelectedListener() {
@@ -66,8 +66,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 //item.isChecked = true
             }
 
-            R.id.nav_item_gallery ->{
-                changeFragment(GalleryFragment.newInstance("",""))
+            R.id.nav_item_video_list ->{
+                changeFragment(VideoListFragment.newInstance("",""))
                 //item.isChecked = true
             }
 
