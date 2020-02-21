@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_header"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@color/mainTheme"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/nav_header_imageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/profile_placeholder"
+        android:scaleType="centerCrop"
+        app:riv_oval="true"/>
+
+    <TextView
+        android:id="@+id/nav_header_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:text="John Wick"
+        android:textColor="@android:color/white"/>
+</LinearLayout>
