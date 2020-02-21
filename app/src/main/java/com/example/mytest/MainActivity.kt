@@ -1,25 +1,23 @@
 package com.example.mytest
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.core.view.iterator
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import com.example.mytest.fragments.VideoListFragment
 import com.example.mytest.fragments.MusicFragment
 import com.example.mytest.fragments.VideoFragment
+import com.example.mytest.fragments.VideoListFragment
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.toolbar.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var drawer: DrawerLayout
-    private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var navigationView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +33,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun initUI() {
         changeFragment(VideoListFragment.newInstance("",""))
         navigationView.menu.getItem(2).isChecked = true
+
+        initHeaderUI()
+    }
+
+    private fun initHeaderUI() {
+        headerHeading?.text = "Movie Hut"
+        btnDrawer?.setOnClickListener {
+            if (drawer.isDrawerOpen(GravityCompat.START)){
+                drawer.closeDrawer(GravityCompat.START)
+            }
+            else{
+                drawer.openDrawer(GravityCompat.START)
+            }
+        }
     }
 
     private fun initNavItemSelectedListener() {
@@ -43,15 +55,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun initNavDrawer() {
-//        val toolbar: Toolbar = findViewById(R.id.toolbar_main)
-//        setSupportActionBar(toolbar)
 
         drawer = findViewById(R.id.drawer_layout)
-
-        toggle = ActionBarDrawerToggle(this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        drawer.addDrawerListener(toggle)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(true)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -102,22 +107,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             item.isChecked = false
         }
         //navigationView.menu.getItem(0).isChecked = false
-    }
-
-    override fun onPostCreate(savedInstanceState: Bundle?) {
-        super.onPostCreate(savedInstanceState)
-        toggle.syncState()
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        toggle.onConfigurationChanged(newConfig)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (toggle.onOptionsItemSelected(item)) {
-            return true
-        }
-        return super.onOptionsItemSelected(item)
     }
 }
