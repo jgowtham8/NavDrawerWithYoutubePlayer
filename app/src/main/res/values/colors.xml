@@ -17,4 +17,6 @@
     <color name="blackWithTransparent">#99000000</color>
     <color name="loadingTransparentColor">#BFFFFFFF</color>
     <color name="widget_underline_color">#8c9295</color>
+    <color name="titleColor">#50595d</color>
+    <color name="titleBackgroundColor">#f2f3f3</color>
 </resources>
